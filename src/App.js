@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
+//import logo from './logo.svg';
 import './App.css';
 
+/*
 class App extends Component {
   render() {
     return (
@@ -17,5 +19,24 @@ class App extends Component {
     );
   }
 }
+*/
 
-export default App;
+class Home extends Component{
+  render(){
+    return(
+      <div>
+        <h1>React Router Tutorial</h1>
+        <ul>
+          <li><Link to="/" activeClassName="active">Home</Link></li>
+          <li><Link to="/about" activeStyle={{ color: 'green' }}>About</Link></li>
+          <li><Link to="/user" activeClassName="active">User</Link></li>
+        </ul>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+
+
+export default Home;
