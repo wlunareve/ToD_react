@@ -27,10 +27,11 @@ class Button extends React.Component{
     
     handleClick = () =>{
         // e.target 會取得 dom 物件
-        const oldClickCount = this.state.clickCount
         this.spanRef.current.textContent = Number(this.spanRef.current.textContent) +1;
+        
+        const oldClickCount = this.state.clickCount
         this.setState({
-            clickCount:  oldClickCount + 1
+            clickCount: oldClickCount + 1
         });
     }
 

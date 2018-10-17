@@ -4,6 +4,8 @@ import logo from './logo.svg';
 import './App.css';
 import Example from './Example';
 import Button from './Button';
+import Form from './Form';
+import ControlledForm from './ControlledForm';
 
 /*
 class App extends Component {
@@ -40,6 +42,8 @@ class Home extends Component{
         <Example text={'text:{}當作傳入component中的props變數'}/>
         <Example text={'test: this.props.text'} />
         <Button text={'會被 alert 出來的字'} />
+        <Form />
+        <ControlledForm />
       </div>
     );
   }
