@@ -7,7 +7,7 @@ class ClockDate extends React.Component{
     }
     
     shouldComponentUpdate(prevProps){
-        if(prevProps.dateString === this.props.dateString){
+        if(prevProps.year === this.props.year && prevProps.month === this.props.month && prevProps.date === this.props.date){
             return false;
         }else{
             return true;
@@ -15,8 +15,9 @@ class ClockDate extends React.Component{
     }
 
     render(){
+        const { year, month, date} =this.props;
         return(
-            this.props.dateString
+            `${year}年${month}月${date}日`
         )
     }
 }

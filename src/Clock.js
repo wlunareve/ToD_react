@@ -29,11 +29,12 @@ class Clock extends React.Component{
         clearInterval(this.interval);
     }
 
-
+    
     render(){
+        const { time } = this.state
         return(
             <div>
-                <ClockDate dateString={this.state.time.toLocaleDateString()}></ClockDate>
+                <ClockDate year={time.getFullYear()} month={time.getMonth() + 1} date={time.getDate()}></ClockDate>
                 <div ref={this.timeRef} >{this.state.time.toLocaleTimeString()}</div>
             </div>
         );
