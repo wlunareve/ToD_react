@@ -1,5 +1,6 @@
 import React from 'react';
 
+// 可以使用 extends React.PureComponent 就可以不用寫 shouldComponentUpdate方法
 class ClockDate extends React.Component{
     
     componentDidUpdate(){
