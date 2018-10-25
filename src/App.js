@@ -6,9 +6,7 @@ import Example from './Example';
 import Button from './Button';
 import Form from './Form';
 import ControlledForm from './ControlledForm';
-import ClockWithSwitch from './ClockWithSwitch';
-import Select from './Select';
-
+import SelectedColorClock from './SelectedColorClock';
 /*
 class App extends Component {
   render() {
@@ -44,8 +42,7 @@ class Home extends Component{
         <Button text={'會被 alert 出來的字'} />
         <Form />
         <ControlledForm />
-        <ClockWithSwitch />
-        <Select />
+        <SelectedColorClock />
         </header>
       </div>
     );

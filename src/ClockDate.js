@@ -1,4 +1,5 @@
 import React from 'react';
+import { Context } from './SelectedColorClock';
 
 // 可以使用 extends React.PureComponent 就可以不用寫 shouldComponentUpdate方法
 class ClockDate extends React.Component{
@@ -18,7 +19,13 @@ class ClockDate extends React.Component{
     render(){
         const { year, month, date} =this.props;
         return(
-            `${year}年${month}月${date}日`
+            <Context.Consumer>
+                {value => (
+                <div style={{ color: value}}>
+                    {`${year}年${month}月${date}日`}
+                </div>
+                )}
+            </Context.Consumer>
         )
     }
 }
