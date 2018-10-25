@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Example from './Example';
@@ -7,6 +7,7 @@ import Button from './Button';
 import Form from './Form';
 import ControlledForm from './ControlledForm';
 import ClockWithSwitch from './ClockWithSwitch';
+import Select from './Select';
 
 /*
 class App extends Component {
@@ -26,6 +27,8 @@ class App extends Component {
 }
 */
 
+
+
 class Home extends Component{
   render(){
     return(
@@ -34,11 +37,7 @@ class Home extends Component{
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        <h1>React Router Tutorial</h1>
-        </p>
+
         <Example text={'React'} />
         <Example text={'text:{}當作傳入component中的props變數'}/>
         <Example text={'test: this.props.text'} />
@@ -46,6 +45,8 @@ class Home extends Component{
         <Form />
         <ControlledForm />
         <ClockWithSwitch />
+        <Select />
+        </header>
       </div>
     );
   }
