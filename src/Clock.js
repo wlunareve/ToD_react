@@ -1,44 +1,30 @@
 import React from 'react';
 import ClockDate from './ClockDate'
+import withCurrentTime from './withCurrentTime';
 
 class Clock extends React.Component{
     
     timeRef = React.createRef();
     
-    state = {
-        time: new Date()
-    }
 
-    componentDidMount(){
-        this.interval = setInterval(() => {
-            this.setState({
-                time: new Date()
-            })
-        }, 1000);
-    }
-    
     componentDidUpdate(){
-        if (this.state.time.getSeconds() %5 === 0){
+        if (this.props.currentTime.getSeconds() %5 === 0){
         this.timeRef.current.style.color = 'red';
         } else{
             this.timeRef.current.style.color = 'black';
         }   
     }
     
-    componentWillUnmount(){
-        clearInterval(this.interval);
-    }
-
-    
     render(){
-        const { time } = this.state
+        const { currentTime } = this.props;
+
         return(
             <div>
-                <ClockDate year={time.getFullYear()} month={time.getMonth() + 1} date={time.getDate()}></ClockDate>
-                <div ref={this.timeRef} >{this.state.time.toLocaleTimeString()}</div>
+                <ClockDate year={currentTime.getFullYear()} month={currentTime.getMonth() + 1} date={currentTime.getDate()}></ClockDate>
+                <div ref={this.timeRef} >{currentTime.toLocaleTimeString()}</div>
             </div>
         );
     }
 }
 
-export default Clock;
+export default withCurrentTime(Clock);
