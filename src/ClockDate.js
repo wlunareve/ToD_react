@@ -1,9 +1,17 @@
 import React from 'react';
 import { Context } from './SelectedColorClock';
+import PropTypes from 'prop-types';
 
 // 可以使用 extends React.PureComponent 就可以不用寫 shouldComponentUpdate方法
 class ClockDate extends React.Component{
     
+    static propTyoes = {
+        year: PropTypes.number.isRequired,
+        month: PropTypes.number.isRequired,
+        date: PropTypes.number.isRequired,
+        render: PropTypes.func.isRequired,
+    }
+
     componentDidUpdate(){
         console.log('test');
     }
@@ -22,7 +30,7 @@ class ClockDate extends React.Component{
             <Context.Consumer>
                 {value => (
                 <div style={{ color: value}}>
-                    {`${year}年${month}月${date}日`}
+                    {this.props.render(year, month, date)}
                 </div>
                 )}
             </Context.Consumer>
