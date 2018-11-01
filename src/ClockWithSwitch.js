@@ -4,6 +4,7 @@ import Timer from './Timer';
 
 import ReactDOM from 'react-dom';
 
+//React.createPortal 可以將component 另外 render到另一個root上 製造一種彈跳視窗的效果
 
 class ClockWithSwitch extends React.Component{
     state = {
