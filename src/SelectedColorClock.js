@@ -1,6 +1,6 @@
 import React from 'react';
 import ClockWithSwitch from './ClockWithSwitch'
-import ClockWithSwitchWithStore from './ClockWithSwitchWithStore'
+import ClockWithSwitchContainer from './ClockWithSwitchContainer'
 import Select from './Select';
 
 const options = [{ 
@@ -41,7 +41,7 @@ class SelectedColorClock extends React.Component{
                     options={options} />
                 <Context.Provider value={this.state.selectValue} >
                     <ClockWithSwitch />
-                    <ClockWithSwitchWithStore />
+                    <ClockWithSwitchContainer />
                 </Context.Provider>
             </div>
         );
