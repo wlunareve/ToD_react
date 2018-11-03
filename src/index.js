@@ -9,14 +9,16 @@ import './index.css';
 import Home from './App';
 //import About from './App';
 //import Users from './App';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render(
-    (
+    <Provider store={store}>
         <Home />
-    ),
+    </Provider>,
     document.querySelector('#root')
 );
 

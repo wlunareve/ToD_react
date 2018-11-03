@@ -13,7 +13,6 @@ function uncheck(){
 function toggleCheckbox(checked){
     return{
         type: 'TOGGLE_CHECKBOX',
-        checked
     }
 }
 

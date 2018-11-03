@@ -1,6 +1,7 @@
 import React from 'react';
-import ClockWithSwitch from './ClockWithSwitch'
-import ClockWithSwitchContainer from './ClockWithSwitchContainer'
+//import ClockWithSwitch from './ClockWithSwitch';
+import ClockWithSwitchContainer from './ClockWithSwitchContainer';
+import ClockWithSwitch from './ClockWithSwitch/ClockWithSwitchConatiner';
 import Select from './Select';
 
 const options = [{ 
