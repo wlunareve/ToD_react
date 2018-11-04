@@ -2,13 +2,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 //import history from './history';
 import './index.css';
-//import App from './App';
 import Home from './App';
-//import About from './App';
-//import Users from './App';
+import Form from './Form';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
@@ -17,7 +15,18 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <Provider store={store}>
-        <Home />
+        <BrowserRouter>
+        <div>
+            <ul>
+                <li><Link to ="/Home">Home</Link></li>
+                <li><Link to ="/Form">Form</Link></li>
+            </ul>
+            <Route path="/Home" component={Home}>    
+            </Route>
+            <Route path="/Form" component={Form}>
+            </Route>
+        </div>
+        </BrowserRouter>
     </Provider>,
     document.querySelector('#root')
 );
