@@ -1,6 +1,6 @@
 import React from 'react';
-import store from './redux/store';
-import { toggleCheckbox } from './redux/actions';
+import store from '../../redux/store';
+import { toggleCheckbox } from '../../redux/actions';
 export function ClockWithSwitchWithStoreContainer(WrappedComponent) {
     return class extends React.Component {
         unsubscribe = null;

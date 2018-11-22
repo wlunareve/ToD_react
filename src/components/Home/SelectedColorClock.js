@@ -1,6 +1,7 @@
 import React from 'react';
 //import ClockWithSwitch from './ClockWithSwitch';
 import ClockWithSwitchContainer from './ClockWithSwitchContainer';
+// 應用 react-redux 的方式
 import ClockWithSwitch from './ClockWithSwitch/ClockWithSwitchConatiner';
 import Select from './Select';
 
