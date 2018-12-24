@@ -1,11 +1,82 @@
-/*
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   position: relative;
   height: 100vh;
+  background: url(https://images8.alphacoders.com/976/976814.jpg) no-repeat center;
+  background-attachment: fixed;
 }
+
+.twitch_container{
+  background: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  
+}
+
+.twitch_row{
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.twitch_col{
+  width: 280px;
+  padding: 10px;
+  margin: 10px;
+  /*   display: inline-block 才能並排 */
+  display: inline-block;
+
+}
+
+.twitch_col:nth-child(3n){
+  margin-right: 0px;
+}
+
+.preview img{
+  width: 100%;
+}
+
+.twitch_bottom{
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  position: relative;
+}
+
+.avatar{
+  width: 50px;
+  height: 50px;
+  /* overflow:hidden; 自動隱藏超出的文字或圖片 */
+  overflow: hidden;
+  /* border-radius 圓形 */
+  border-radius: 50%;
+}
+
+.avatar img{
+  width: 100%;
+}
+
+.intro{
+  /* absolute 找最接近上層元素是 relative的左上角做為參考點 */
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  color: white;
+
+}
+
+.channel_name{
+  margin-bottom: 10px;
+}
+
+/*
+
+
 
 #clock-root {
   position: absolute;
