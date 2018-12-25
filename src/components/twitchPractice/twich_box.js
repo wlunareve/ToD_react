@@ -12,7 +12,7 @@ class TwitchBox extends Component{
                         <img src="https://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png" alt="我是頭貼"></img>
                     </div>
                     <div className="intro">
-                        <div className="channel_name">頻道名稱</div>
+                        <div className="channel_name">頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱</div>
                         <div className="owner_name">實況主名稱</div>
                     </div>
                 </div>

@@ -16,6 +16,8 @@ class Twitch extends Component{
                     <TwitchBox></TwitchBox>
                     <TwitchBox></TwitchBox>
                     <TwitchBox></TwitchBox>
+                    <div className="twitch_col"></div>
+                    <div className="twitch_col"></div>
                 </div>
             </div>
         );

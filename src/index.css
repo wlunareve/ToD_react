@@ -23,6 +23,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  display: flex;
+  /* 適當換行 */
+  flex-wrap: wrap;
+  /* 平均分配 */
+  justify-content: space-around;
 }
 
 .twitch_col{
@@ -35,7 +40,6 @@ body {
 }
 
 .twitch_col:nth-child(3n){
-  margin-right: 0px;
 }
 
 .preview img{
@@ -46,6 +50,10 @@ body {
   background: rgba(0, 0, 0, 0.6);
   padding: 10px;
   position: relative;
+  /* 用 flex 排版 */
+  display: flex;
+  /* 高低置中 */
+  align-items: center;
 }
 
 .avatar{
@@ -55,6 +63,7 @@ body {
   overflow: hidden;
   /* border-radius 圓形 */
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .avatar img{
@@ -63,16 +72,21 @@ body {
 
 .intro{
   /* absolute 找最接近上層元素是 relative的左上角做為參考點 */
-  position: absolute;
-  top: 10px;
-  left: 70px;
   color: white;
+  text-align: initial;
 
 }
 
 .channel_name{
   margin-bottom: 10px;
+  /* 元素中的內容不換行 */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 180px;
+
 }
+
 
 /*
 
