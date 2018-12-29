@@ -11,11 +11,9 @@ body {
 .twitch_container{
   background: rgba(0, 0, 0, 0.5);
   min-height: 100vh;
-
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
-  
 }
 
 .twitch_row{
@@ -77,7 +75,6 @@ body {
   /* absolute 找最接近上層元素是 relative的左上角做為參考點 */
   color: white;
   text-align: initial;
-
 }
 
 .channel_name{
@@ -87,14 +84,10 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   width: 180px;
-
 }
 
 
 /*
-
-
-
 #clock-root {
   position: absolute;
   top: 50%;
@@ -106,5 +99,4 @@ body {
   border: 1px solid black;
   border-radius: 4px;
 }
-
 */
