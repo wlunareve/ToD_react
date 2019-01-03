@@ -5,15 +5,17 @@ class TwitchBox extends Component{
         return(
             <div className="twitch_col">
                 <div className="preview">
-                    <img src="https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg" alt="我是圖片" ></img>
+                    <a href={this.props.link}>
+                    <img src={this.props.preview} alt="我是圖片"></img>
+                    </a>
                 </div>
                 <div className="twitch_bottom">
                     <div className="avatar">
-                        <img src="https://static-cdn.jtvnw.net/jtv-static/404_preview-300x300.png" alt="我是頭貼"></img>
+                        <img src={this.props.logo} alt="我是頭貼"></img>
                     </div>
                     <div className="intro">
-                        <div className="channel_name">頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱頻道名稱</div>
-                        <div className="owner_name">實況主名稱</div>
+                        <div className="channel_name">{this.props.title}</div>
+                        <div className="owner_name">{this.props.name}</div>
                     </div>
                 </div>
             </div>
