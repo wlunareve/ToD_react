@@ -5,7 +5,7 @@ class NavbarButton extends Component{
     render(){
         return(
             <div className="nav-item">
-                <Link to ={this.props.route} class="btn btn-block btn-outline-success my-2 mr-sm-2">{this.props.name}</Link>
+                <Link to ={this.props.route} className="btn btn-block btn-outline-success my-2 mr-sm-2">{this.props.name}</Link>
             </div>
         );
     }
