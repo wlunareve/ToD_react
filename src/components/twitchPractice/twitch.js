@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import TwitchBox from './twich_box';
 
-const clientId = 'vl6qhqcyjpx5ehwqvcg2ko2yisc0br';
+const clientId = 'vl6qhqcyjpx5ehwqvcg2ko2yisc0br'
 const client_id = '&client_id=' + clientId
 const limit = 20
-let apiUrl = 'https://api.twitch.tv/kraken/streams?language=zh-tw&limit=' + limit + client_id;
+let isLoading = false
+let apiUrl = 'https://api.twitch.tv/kraken/streams?language=zh-tw&limit=' + limit + client_id
 
 class Twitch extends Component{
     
@@ -14,6 +15,7 @@ class Twitch extends Component{
     }
 
     handleTwitchItemsLoad = () => {
+        isLoading = true
         fetch(apiUrl,{
             method: 'GET'
         })
@@ -23,7 +25,8 @@ class Twitch extends Component{
             return response.json()
         })
         .then((itemList)=>{
-            console.log(apiUrl);
+            console.log(apiUrl)
+            isLoading = false
             const {streams, _links} = itemList
             if (this.state.stream.length === 0){
                 this.setState({
@@ -54,15 +57,17 @@ class Twitch extends Component{
     // 記得要用 Arrow function
     handleScroll = (e) => {
         // 頁面 html 大小
-        console.log(document.body.offsetHeight);
+        // console.log(document.body.offsetHeight);
         // 捲動位置
-        console.log(window.scrollY);
+        // console.log(window.scrollY);
         // 總 html 大小
-        console.log(document.body.scrollHeight);
+        // console.log(document.body.scrollHeight);
 
         if (document.body.scrollHeight <= document.body.offsetHeight + window.scrollY + 200 ){
-            apiUrl = this.state._links.next + client_id 
-            this.handleTwitchItemsLoad()
+            if (isLoading === false){
+                apiUrl = this.state._links.next + client_id 
+                this.handleTwitchItemsLoad()
+            }
         }
 
     }
