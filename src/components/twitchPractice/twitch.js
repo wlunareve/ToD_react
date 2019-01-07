@@ -18,6 +18,7 @@ class Twitch extends Component{
             method: 'GET'
         })
         .then((response) => {
+            console.log(response)
             if (!response.ok) throw new Error(response.statusText)
             return response.json()
         })
@@ -53,13 +54,13 @@ class Twitch extends Component{
     // 記得要用 Arrow function
     handleScroll = (e) => {
         // 頁面 html 大小
-        // console.log(document.body.offsetHeight);
+        console.log(document.body.offsetHeight);
         // 捲動位置
-        // console.log(window.scrollY);
+        console.log(window.scrollY);
         // 總 html 大小
-        // console.log(document.body.scrollHeight);
+        console.log(document.body.scrollHeight);
 
-        if (document.body.scrollHeight === document.body.offsetHeight + window.scrollY ){
+        if (document.body.scrollHeight <= document.body.offsetHeight + window.scrollY + 200 ){
             apiUrl = this.state._links.next + client_id 
             this.handleTwitchItemsLoad()
         }
