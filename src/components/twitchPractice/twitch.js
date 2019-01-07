@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import TwitchBox from './twich_box';
 
 const clientId = 'vl6qhqcyjpx5ehwqvcg2ko2yisc0br';
+const client_id = '&client_id=' + clientId
 const limit = 20
-const apiUrl = 'https://api.twitch.tv/kraken/streams?client_id=' + clientId + '&language=zh-tw&limit=' + limit;
+let apiUrl = 'https://api.twitch.tv/kraken/streams?language=zh-tw&limit=' + limit + client_id;
 
 class Twitch extends Component{
     
     state = {
+        _links: [],
         stream: [],
     }
 
@@ -20,10 +22,21 @@ class Twitch extends Component{
             return response.json()
         })
         .then((itemList)=>{
-            const {streams} = itemList
-            this.setState({
-                stream: streams
-            })
+            console.log(apiUrl);
+            const {streams, _links} = itemList
+            if (this.state.stream.length === 0){
+                this.setState({
+                    _links: _links,
+                    stream: streams,
+                })
+            }else{
+                let oldStreams = this.state.stream
+                this.setState({
+                    _links: _links,
+                    stream: oldStreams.concat(streams),
+                })
+            }
+            
             /*
             for (let stream of streams){
                 this.setState({
@@ -37,11 +50,31 @@ class Twitch extends Component{
             */
         })
     }
+    // 記得要用 Arrow function
+    handleScroll = (e) => {
+        // 頁面 html 大小
+        // console.log(document.body.offsetHeight);
+        // 捲動位置
+        // console.log(window.scrollY);
+        // 總 html 大小
+        // console.log(document.body.scrollHeight);
+
+        if (document.body.scrollHeight === document.body.offsetHeight + window.scrollY ){
+            apiUrl = this.state._links.next + client_id 
+            this.handleTwitchItemsLoad()
+        }
+
+    }
 
     componentDidMount() {
         // 元件"已經"載入，所以可以載入資料進來
         this.handleTwitchItemsLoad()
+        window.addEventListener('scroll', this.handleScroll);
       }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
     
     render(){
         return(
