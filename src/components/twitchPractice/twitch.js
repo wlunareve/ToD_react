@@ -56,11 +56,11 @@ class Twitch extends Component{
     }
     // 記得要用 Arrow function
     handleScroll = (e) => {
-        // 頁面 html 大小
+        // 目前視窗可視頁面 html 大小 固定大小
         // console.log(document.body.offsetHeight);
-        // 捲動位置
+        // 捲動位置 從 0 開始
         // console.log(window.scrollY);
-        // 總 html 大小
+        // 總 html 大小 固定大小
         // console.log(document.body.scrollHeight);
 
         if (document.body.scrollHeight <= document.body.offsetHeight + window.scrollY + 200 ){
