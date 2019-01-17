@@ -12,6 +12,7 @@ class Twitch extends Component{
     state = {
         _links: [],
         stream: [],
+        lang: 'zh-tw',
     }
 
     handleTwitchItemsLoad = () => {
@@ -69,22 +70,61 @@ class Twitch extends Component{
                 this.handleTwitchItemsLoad()
             }
         }
-
     }
+
+    changeLang_zhtw = () => {
+        if (this.state.lang === 'en'){
+            this.setState({ 
+                lang: 'zh-tw',
+                _links: [],
+                stream: []}, () => {
+                    apiUrl = 'https://api.twitch.tv/kraken/streams?language=' + this.state.lang + '&limit=' + limit + client_id
+                    this.handleTwitchItemsLoad()
+                }
+            )
+        }
+    }
+
+    changeLang_en = () => {
+        if (this.state.lang === 'zh-tw'){
+            this.setState({ 
+                lang: 'en',
+                _links: [],
+                stream: []}, () => {
+                    apiUrl = 'https://api.twitch.tv/kraken/streams?language=' + this.state.lang + '&limit=' + limit + client_id
+                    this.handleTwitchItemsLoad()
+                }
+            )
+        }
+    }
+
 
     componentDidMount() {
         // 元件"已經"載入，所以可以載入資料進來
         this.handleTwitchItemsLoad()
         window.addEventListener('scroll', this.handleScroll);
-      }
+        apiUrl = 'https://api.twitch.tv/kraken/streams?language=zh-tw&limit=' + limit + client_id
+    }
+
+    // componentWillUpdate(){
+    //     this.handleTwitchItemsLoad()
+    // }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+        this.setState({
+            _links: [],
+            stream: [],
+        })
     }
     
     render(){
         return(
             <div className="twitch_container">
+                <div className="lang_box">
+                    <div className="lang" onClick={this.changeLang_zhtw}>中文</div>
+                    <div className="lang" onClick={this.changeLang_en}>英文</div>
+                </div>
                 <div className="twitch_row">
                     {this.state.stream.map((stream) => {
                         return <TwitchBox key={stream._id} link={stream.channel.url} preview={stream.preview.medium} title={stream.channel.status} name={stream.channel.display_name} logo={stream.channel.logo}></TwitchBox>

@@ -10,6 +10,22 @@ body {
     background: url($background-picture-link) no-repeat center;
     background-attachment: fixed;
     
+    .lang_box{
+        margin: 0 auto;
+        max-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        font-size: 500%;
+        font-family: 'Microsoft JhengHei';
+        
+        .lang {
+            color: white;
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+
     .twitch_container{
         background: $background-shadown-cover;
         min-height: 100vh;
